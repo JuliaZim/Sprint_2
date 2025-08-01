@@ -37,13 +37,9 @@ class PointsForMeters:
 
 
 class TotalPoints(PointsForPlace, PointsForMeters):
-    # Определяем статический метод
-    @staticmethod
-    def get_total_points(place, meters):
+    def get_total_points(self, place, meters):
         # Начисляем баллы, используя методы родительского класса
-        total = PointsForPlace.get_points_for_place(
-            place
-        ) + PointsForMeters.get_points_for_meters(meters)
+        total = self.get_points_for_place(place) + self.get_points_for_meters(meters)
         return total
 
 
