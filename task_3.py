@@ -8,9 +8,11 @@ class PointsForPlace:
         # Обрабатываем ошибку, если баллов не положено
         if place > 100:
             print("Баллы начисляются только первым 100 участникам")
+            return 0
         # Обратываем ошибку, если место некорректно
         elif place < 1:
             print("Спортсмен не может занять нулевое или отрицательное место")
+            return 0
         # Начисляем баллы
         else:
             points = 101 - place
@@ -27,6 +29,7 @@ class PointsForMeters:
         # Обрабатываем ошибку, если некорректные метры
         if meters < 0:
             print("Количество метров не может быть отрицательным")
+            return 0
         # Начисляем баллы
         else:
             points = 0.5 * meters
@@ -34,9 +37,6 @@ class PointsForMeters:
 
 
 class TotalPoints(PointsForPlace, PointsForMeters):
-    # Задаем количество баллов = 0
-    points = 0
-
     # Определяем статический метод
     @staticmethod
     def get_total_points(place, meters):
